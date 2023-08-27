@@ -267,8 +267,8 @@ namespace UniscopeQCWrapper
         public static bool ScanForDevices(out int deviceHandle)
         {
             UniscopeQCLibrary uniscopeLibrary = new UniscopeQCLibrary();
-            uniscopeLibrary.comPort = 16; // Set the desired COM port
-            uniscopeLibrary.baudRate = 9600; // Set the desired baud rate
+            uniscopeLibrary.comPort = 0; // Set the desired COM port
+            uniscopeLibrary.baudRate = 38400; // Set the desired baud rate(qualcomm typically uses 38400)
 
             int connectionResult = uniscopeLibrary.ConnectToDevice();
 
