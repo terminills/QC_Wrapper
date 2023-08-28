@@ -245,139 +245,198 @@ namespace UniscopeQCWrapper
         public int comPort;
         public int baudRate;
 
-                
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int DisconnectDevice(int deviceHandle);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int ConnectToDevice(out int deviceHandle, int comPort, int baudRate, int timeout);
-                
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int ReadIMEI(int deviceHandle, int nvItemId, IntPtr bufferPtr, IntPtr bufferSizePtr);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int ReadNvramFromPhone(int deviceHandle, int nvItemId, IntPtr bufferPtr, IntPtr bufferSizePtr);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int WriteNvramToPhone(int deviceHandle, int nvItemId, IntPtr bufferPtr, int bufferSize);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int GetPhoneConnStat(int deviceHandle, IntPtr bufferPtr, int bufferSize);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int GetPhoneMode(int deviceHandle, IntPtr bufferPtr, int bufferSize);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int GetPhoneVersion(int deviceHandle, IntPtr bufferPtr, int bufferSize);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int GetPhoneBatteryLevel(int deviceHandle, IntPtr bufferPtr, int bufferSize);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int GetPhoneNetworkInfo(int deviceHandle, IntPtr bufferPtr, int bufferSize);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int GetPhoneSignalStrength(int deviceHandle, IntPtr bufferPtr, int bufferSize);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int SetPhonePowerOff(int deviceHandle);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int SetPhonePowerOn(int deviceHandle);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int SetPhonePowerCycle(int deviceHandle);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int GetPhoneTemperature(int deviceHandle, IntPtr bufferPtr, int bufferSize);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int GetPhoneIMEI(int deviceHandle, IntPtr bufferPtr, int bufferSize);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int GetPhoneBatteryVoltage(int deviceHandle, IntPtr bufferPtr, int bufferSize);
-               
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int DisconnectAllDevices();
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ResetPhoneInDLoadMode(int deviceHandle);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SendNopToDLoad(int deviceHandle);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int EmmcDownloadPrgBootLoader(IntPtr a1, int a2, int a3, IntPtr a4, int a5);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int FtmGsmPolarTxSweepCal(int deviceHandle, int a2, int a3, int a4);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int FtmSetChannel(int deviceHandle, int channel);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int FtmSetCommandCode(int deviceHandle, int commandCode);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int FtmSetMode(int deviceHandle, int mode);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int FtmSetModeId(int deviceHandle, int modeId);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int FtmSetPdm(int deviceHandle, int a2, int a3);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int FtmSetPowerControl(int deviceHandle, int a2, int a3, int a4);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int FtmSetTxStatus(int deviceHandle, int a2);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetNVValueStringByEFS(int deviceHandle, int a2, uint a3, int v4, int v5, int v6, int v7, [MarshalAs(UnmanagedType.LPStr)] out string value);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPhoneConnectionStatus(ref int deviceHandle);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPhoneMode(int deviceHandle, int a2);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GetPhoneVersion(int deviceHandle, int a2);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ReadIMEIFromPhone(int deviceHandle, int a2, ref IMEIStruct imeiStruct, int a4);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int WriteIMEIToPhone(int deviceHandle, int a2, ref IMEIStruct imeiStruct, int a4);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void InitLibrary(int a1, int a2);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int MakeGoldenCopy(int a1);
-
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int CreateDirectory(uint a1, int a2, [MarshalAs(UnmanagedType.LPStr)] string a3);
-        
-        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void NvToolCallBack(NvToolCallBackDelegate callback, uint param1, uint param2, uint param3, uint param4);
-
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void NvToolCallBackDelegate(uint param1, uint param2, uint param3, uint param4);
 
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void NvToolCallBack(NvToolCallBackDelegate callback, uint param1, uint param2, uint param3, uint param4);
 
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ReadNvramFromPhone(int deviceHandle, IntPtr buffer, IntPtr bufferSize, IntPtr nvItemId);
+        public static extern Int32 QCOM_Connect(out Int32 deviceHandle, Int32 comPort, Int32 baudRate, Int32 timeout);
 
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ReadNvramFromPhone_EXT(int deviceHandle, IntPtr buffer, ref s0 a3, [MarshalAs(UnmanagedType.LPStr)] string a4);
+        public static extern void QCOM_Disconnect(ref Int32 deviceHandle);
 
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int WriteNvramToPhone(int deviceHandle, int a2);
+        public static extern int QCOM_DisconnectAll();
 
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int WriteNvramToPhone_EXT(int deviceHandle, int a2);
+        public static extern int QCOM_DLoad_ResetPhone(int deviceHandle);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_DLoadSendNop(int deviceHandle);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_EmmcDownloadPrgBootLoader(IntPtr deviceHandle, int a2, int a3, IntPtr a4, int a5);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_FtmGsmPolarTxSweepCal(int deviceHandle, int a2, int a3, int a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_FtmSetChan(int deviceHandle, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern Int32 QCOM_FtmSetCmdCode(Int32 deviceHandle, Int32 a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_FtmSetMode(int deviceHandle, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_FtmSetModeId(int deviceHandle, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_FtmSetPdm(int deviceHandle, int a2, int a3);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_FtmSetPowerControl(int deviceHandle, int a2, int a3, int a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_FtmSetTxStatus(int deviceHandle, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_GetNVValueStringByEFS(int deviceHandle, int a2, uint a3, int a4, int a5, int a6, int a7, [MarshalAs(UnmanagedType.LPStr)] out string a8);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern Int32 QCOM_GetPhoneConnStat(ref Int32 deviceHandle);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_GetPhoneMode(int deviceHandle, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_GetPhoneVersion(int deviceHandle, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_ImeiReadFromPhone(int deviceHandle, int a2, ref IMEIStruct imeiStruct, int a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_ImeiWriteToPhone(int deviceHandle, int a2, ref IMEIStruct imeiStruct, int a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void QCOM_InitLib(int a1, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_MakeGoldenCopy(int deviceHandle);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_MKDIR(uint a1, int a2, [MarshalAs(UnmanagedType.LPStr)] string a3);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_NvConfigCallBack(int a1);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_OperateLog(int a1, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_QcnCheckFile(int deviceHandle, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_QcnLoadFromFile();
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_QcnLoadNvXmlFile(int a2, int a3, int a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_QcnLoadOperation();
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_QcnLoadOperationAll();
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_QcnWriteToPhone();
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern sbyte QCOM_ReadAllNvramFromPhone(int deviceHandle);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_ReadNvramFromPhone(int deviceHandle, IntPtr buffer, IntPtr bufferSize, IntPtr nvItemId);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_ReadFileFromEFS(int a1, uint a2, int a3);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_ReadMemFromEFS(int a1, ref int a2, int a3, uint a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_ReadNVItemFromMobileByEFS(int a1, uint a2, int a3, [MarshalAs(UnmanagedType.LPStr)] string a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_ReadNvramFromPhone(int deviceHandle, IntPtr a2, ref NvramData a3, [MarshalAs(UnmanagedType.LPStr)] string a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_ReadNvramFromPhone_EXT(int a1, IntPtr a2, ref NvramData a3, [MarshalAs(UnmanagedType.LPStr)] string a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_REMOVEDIR(uint a1, int a2, [MarshalAs(UnmanagedType.LPStr)] string a3);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_RtreReadFromPhone(int a1, ref int a2, [MarshalAs(UnmanagedType.LPStr)] string a3);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern sbyte QCOM_RtreWriteToPhone(UInt32 ecx, Int32 a2, sbyte a3, [MarshalAs(UnmanagedType.LPStr)] string a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_SB1MultiImageUpload(int ecx, int a2, int a3);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_SendSpcCmdToPhone(int ecx, int a2, int a3);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_SendSyncString(int a1);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern uint QCOM_SetFactoryToken(int a1, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_SetNVOnline(int a1, string a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_SetNVValueStringByEFS(
+            int a1,
+            uint a2,
+            int a3,
+            int v4,
+            int v5,
+            int v6
+        );
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_SetPhoneMode(
+            IntPtr a1, // Not specified in the gathered data
+            int a2
+        );
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern uint QCOM_SwitchToDownloadMode(IntPtr a1, int a2, IntPtr a3);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern uint QCOM_SwitchToDownloadMode_OptionalValidation(IntPtr a1, int a2, int a3);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_SyncWithWait(uint ecx, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_WriteFileToEFS(int a1, uint a2, int a3, sbyte[] a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_WriteMemToEFS(int a1, int a2, uint a3, int a4);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_WriteNVItemToMobileByEFS(int a1, uint a2, int a3);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void QCOM_WriteNvramToPhone(int ecx, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void QCOM_WriteNvramToPhone2(int ecx, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_WriteNvramToPhone_EXT(int ecx, int a2);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern UInt32 QCOM_TestAPIs(IntPtr a1);
+
+        [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int QCOM_UploadQcnFile(int a1, int a2, int a3);
 
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
         public static extern void fun_10006396(int a1);
@@ -396,6 +455,7 @@ namespace UniscopeQCWrapper
 
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
         public static extern int Sleep(int milliseconds);
+
 
         [DllImport(DllPath, CallingConvention = CallingConvention.Cdecl)]
         private static extern int fun_409aba(IntPtr a1, int a2, int a3, int a4, IntPtr a5, IntPtr a6);
@@ -490,7 +550,7 @@ namespace UniscopeQCWrapper
             IntPtr a3 = IntPtr.Zero;
             IntPtr a4 = IntPtr.Zero;
 
-            int result = ReadNvramFromPhone(a1, a2, a3, a4);
+            int result = QCOM_ReadNvramFromPhone(a1, a2, a3, a4);
 
             Console.WriteLine($"QCOM_ReadNvramFromPhone result: {result}");
         }
@@ -511,7 +571,7 @@ namespace UniscopeQCWrapper
             Console.WriteLine("Entering ConnectToDevice...");
 
             // Establish a connection with the device
-            int result = ConnectToDevice(out deviceHandle, comPort, baudRate, 0);
+            int result = QCOM_Connect(out deviceHandle, comPort, baudRate, 0);
 
 
             if (result == 0)
@@ -545,7 +605,7 @@ namespace UniscopeQCWrapper
             try
             {
                 // Initialize the connection with the provided device handle
-                int connectionResult = ConnectToDevice(out deviceHandle, 0, 0, 0);
+                int connectionResult = QCOM_Connect(out deviceHandle, 0, 0, 0);
                 if (connectionResult != 0)
                 {
                     Console.WriteLine("Error connecting to device.");
@@ -555,7 +615,7 @@ namespace UniscopeQCWrapper
                 Console.WriteLine("Device connected successfully!");
 
                 // Now, proceed with the read operation
-                int result = ReadNvramFromPhone(deviceHandle, bufferPtr, bufferSizePtr, (IntPtr)nvItemId);
+                int result = QCOM_ReadNvramFromPhone(deviceHandle, bufferPtr, bufferSizePtr, (IntPtr)nvItemId);
 
                 if (result == 0) // Assuming 0 indicates success, update this based on your DLL's return value
                 {
@@ -584,7 +644,7 @@ namespace UniscopeQCWrapper
             // Scan for devices and store their handles
             for (int comPort = 1; comPort <= 256; comPort++)
             {
-                int result = ConnectToDevice(out int deviceHandle, comPort, uniscopeLibrary.baudRate, 0);
+                int result = QCOM_Connect(out int deviceHandle, comPort, uniscopeLibrary.baudRate, 0);
                 if (result == 0)
                 {
                     Console.WriteLine($"Device connected successfully on COM port: {comPort}");
